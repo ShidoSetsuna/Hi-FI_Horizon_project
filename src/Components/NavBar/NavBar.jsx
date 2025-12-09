@@ -2,10 +2,12 @@ import { useState } from "react"
 import "../NavBar/NavBar.sass"
 import { AiOutlineHome, AiOutlineMessage, AiOutlineShopping, AiOutlineShoppingCart, AiOutlineUser } from "react-icons/ai"
 import { useNavigate } from "react-router"
-import { FaBars, FaTimes } from "react-icons/fa"
+import { FaBars, FaSearch, FaTimes } from "react-icons/fa"
+import { MobileSearch, Search } from "../Search/Search"
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [searchOpen, setSearchOpen] = useState(false)
     const [active, setActive] = useState("home")
 
     const navigate = useNavigate()
@@ -14,6 +16,11 @@ export default function NavBar() {
         setActive(id)
         navigate(path)
         setMenuOpen(false)
+        setSearchOpen(false)
+    }
+
+    const toggleSearch = () => {
+        setSearchOpen(prev => !prev)
     }
 
     const links = [
@@ -54,9 +61,10 @@ export default function NavBar() {
 
                 {/* Actions (Search, Profile, Cart) */}
                 <div className="navbar__actions">
-                    <div className="navbar__search">
-                        <input type="text" placeholder="Searh product..." />
-                    </div>
+                    <Search 
+                        searchOpen={searchOpen} 
+                        toggleSearch={toggleSearch}
+                    />    
 
                     <div className="navbar__profile-container">
                         <AiOutlineUser size={24} className="navbar__profile" />
@@ -74,6 +82,10 @@ export default function NavBar() {
                         <FaBars size={24} />
                     </button>
                 </div> 
+            </div>
+
+            <div className={`navbar__search-mobile ${searchOpen ? "navbar__search-mobile--open" : ""}`}>
+                <MobileSearch searchOpen={searchOpen} />
             </div>
 
 
