@@ -1,0 +1,25 @@
+@use "../../Styles/variables" as vars;
+
+.filter-item {
+  margin-bottom: 1rem;
+  width: 15rem;
+  background-color: vars.$gray;
+  display: flex;
+  flex-direction: column;
+
+  &__name {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.5em;
+    list-style-type: none;
+    font-size: 20px;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.65rem;
+    input {
+      appearance: none;
+    }
+  }
+}

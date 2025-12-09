@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./shop_filter_item.scss";
 
 export default function ShopFilterItem({
   name,
@@ -23,9 +24,9 @@ export default function ShopFilterItem({
 
   if (type === "range") {
     return (
-      <details>
-        <summary>{name}</summary>
-        <div className="filter-options">
+      <details className="filter-item">
+        <summary className="filter-item__name">{name}</summary>
+        <div className="filter-item__sliders">
           <input
             type="range"
             name="minPrice"
@@ -42,7 +43,7 @@ export default function ShopFilterItem({
             value={maxPrice}
             onChange={(e) => setMaxPrice(Number(e.target.value))}
           />
-          <div className="price-display">
+          <div className="filter-item__price-display">
             Min ${minPrice} - ${maxPrice} Max
           </div>
         </div>
@@ -51,9 +52,9 @@ export default function ShopFilterItem({
   }
 
   return (
-    <details>
-      <summary>{name}</summary>
-      <div className="filter-options">
+    <details className="filter-item">
+      <summary className="filter-item__name">{name}</summary>
+      <div className="filter-item__options">
         {options.map((option) => (
           <label key={option}>
             <input type="checkbox" name={option} value={option} />
