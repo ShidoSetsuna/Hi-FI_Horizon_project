@@ -8,6 +8,7 @@ import Contact from "../Contact";
 
 //Loaders
 import { loadFilters } from "../../loaders/filter_loader";
+import FAQ from "../faq";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/faq",
+        element: <FAQ />,
+      }
     ],
   },
 ]);
