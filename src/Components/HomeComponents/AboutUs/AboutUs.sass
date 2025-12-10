@@ -13,9 +13,15 @@
         gap: 15.125rem
         flex-direction: row
 
+        @media (max-width: 900px)
+            flex-direction: column
+            gap: 2rem
+
         h2
             margin-bottom: 2.25rem
 
+    &__what-we-do, &__opening-hours
+        padding: 0 1rem
+
     &__what-we-do
         flex: 1
-        padding: 0 1rem
