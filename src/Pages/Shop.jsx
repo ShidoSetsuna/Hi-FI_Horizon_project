@@ -2,6 +2,7 @@ import { useState } from "react";
 import ShopFilter from "../Components/shop_filter/shop_filter";
 import ProductCard from "../Components/product_card/product_card";
 import { useLoaderData } from "react-router";
+import "../Styles/shop.scss";
 
 export default function Shop() {
   const data = useLoaderData();
@@ -40,9 +41,20 @@ export default function Shop() {
     return true;
   });
 
+  const getStock = (product) => {
+    // Assuming stock information is stored in product.variants
+    if (!product.variants) return 0;
+    return product.variants.reduce(
+      (total, variant) => total + (variant.stock || 0),
+      0
+    );
+  };
+
   return (
-    <div>
-      <ShopFilter filters={data} onFilterChange={setFilters} />
+    <>
+      <div className="shop-filters">
+        <ShopFilter filters={data} onFilterChange={setFilters} />
+      </div>
 
       <div className="products-grid">
         {filteredProducts.map((item) => (
@@ -52,9 +64,10 @@ export default function Shop() {
             name={item.name}
             image={item.image}
             price={item.discount_price ?? item.price}
+            stock={getStock(item)}
           />
         ))}
       </div>
-    </div>
+    </>
   );
 }

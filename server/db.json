@@ -186,7 +186,7 @@
 			"name": "tube_amplifiers",
 			"products": [
 				{
-					"id": 1,
+					"id": 6,
 					"name": "Jolida JD102B Tube Integrated Amplifier",
 					"price": 549.99,
 					"discount_price": 499.99,
@@ -221,7 +221,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 7,
 					"name": "Jolida JD202A Tube Integrated Amplifier",
 					"price": 799.99,
 					"discount_price": null,
@@ -256,7 +256,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 8,
 					"name": "Jolida JD300B Tube Amplifier",
 					"price": 1599.99,
 					"discount_price": 1449.99,
@@ -291,7 +291,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 9,
 					"name": "Jolida JD302B Tube Integrated Amplifier",
 					"price": 899.99,
 					"discount_price": null,
@@ -326,7 +326,7 @@
 					}
 				},
 				{
-					"id": 5,
+					"id": 10,
 					"name": "Jolida JD502B Tube Integrated Amplifier",
 					"price": 1199.99,
 					"discount_price": 1099.99,
@@ -367,7 +367,7 @@
 			"name": "high_end_tube_amplifiers",
 			"products": [
 				{
-					"id": 1,
+					"id": 11,
 					"name": "Manley Mahi Monoblock Power Amplifiers",
 					"price": 2950.00,
 					"discount_price": null,
@@ -402,7 +402,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 12,
 					"name": "Manley Neo-Classic 300B Monoblock Amplifiers",
 					"price": 7500.00,
 					"discount_price": 6999.99,
@@ -437,7 +437,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 13,
 					"name": "Manley Snapper Monoblock Power Amplifiers",
 					"price": 4950.00,
 					"discount_price": null,
@@ -472,7 +472,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 14,
 					"name": "Manley Stingray II Integrated Amplifier",
 					"price": 5750.00,
 					"discount_price": 5499.99,
@@ -513,7 +513,7 @@
 			"name": "speakers",
 			"products": [
 				{
-					"id": 1,
+					"id": 15,
 					"name": "Harbeth P3ESR Compact Bookshelf Speakers",
 					"price": 2199.99,
 					"discount_price": null,
@@ -548,7 +548,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 16,
 					"name": "Harbeth Monitor 30.2 Bookshelf Speakers",
 					"price": 4499.99,
 					"discount_price": 4199.99,
@@ -583,7 +583,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 17,
 					"name": "Harbeth HL7ES-3 Floorstanding Speakers",
 					"price": 6299.99,
 					"discount_price": null,
@@ -618,7 +618,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 18,
 					"name": "Epos M5 Bookshelf Speakers",
 					"price": 599.99,
 					"discount_price": 549.99,
@@ -653,7 +653,7 @@
 					}
 				},
 				{
-					"id": 5,
+					"id": 19,
 					"name": "Bösendorfer VCS Wall-Mount Speakers",
 					"price": 1999.99,
 					"discount_price": 1799.99,
@@ -694,7 +694,7 @@
 			"name": "turntables",
 			"products": [
 				{
-					"id": 1,
+					"id": 20,
 					"name": "Pro-Ject Debut III Turntable",
 					"price": 449.99,
 					"discount_price": 399.99,
@@ -740,7 +740,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 21,
 					"name": "Pro-Ject RPM 5 Carbon Turntable",
 					"price": 1099.99,
 					"discount_price": null,
@@ -776,7 +776,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 22,
 					"name": "Pro-Ject RPM 10 Carbon Turntable",
 					"price": 2999.99,
 					"discount_price": 2799.99,
@@ -812,7 +812,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 23,
 					"name": "Pro-Ject Pre Box S2 Digital DAC",
 					"price": 399.99,
 					"discount_price": 349.99,
@@ -853,7 +853,7 @@
 			"name": "cd_players",
 			"products": [
 				{
-					"id": 1,
+					"id": 24,
 					"name": "Creek Classic CD Player",
 					"price": 849.99,
 					"discount_price": 799.99,
@@ -889,7 +889,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 25,
 					"name": "Creek Destiny CD Player",
 					"price": 1999.99,
 					"discount_price": null,
@@ -925,7 +925,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 26,
 					"name": "Creek Evolution CD Player",
 					"price": 1299.99,
 					"discount_price": 1199.99,
@@ -961,7 +961,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 27,
 					"name": "Exposure 2010S CD Player",
 					"price": 1199.99,
 					"discount_price": null,
@@ -1003,7 +1003,7 @@
 			"name": "power_amplifiers",
 			"products": [
 				{
-					"id": 1,
+					"id": 28,
 					"name": "Parasound Halo A23 Power Amplifier",
 					"price": 1095.00,
 					"discount_price": null,
@@ -1038,7 +1038,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 29,
 					"name": "Parasound D200 Power Amplifier",
 					"price": 1795.00,
 					"discount_price": 1695.00,
@@ -1073,7 +1073,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 30,
 					"name": "Parasound Classic 7100 Multi-Channel Amplifier",
 					"price": 2495.00,
 					"discount_price": null,
@@ -1115,7 +1115,7 @@
 			"name": "preamps_and_dacs",
 			"products": [
 				{
-					"id": 1,
+					"id": 31,
 					"name": "Parasound Halo P3 Preamplifier",
 					"price": 895.00,
 					"discount_price": 849.00,
@@ -1150,7 +1150,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 32,
 					"name": "Parasound Halo D3 DAC",
 					"price": 1295.00,
 					"discount_price": null,
@@ -1185,7 +1185,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 33,
 					"name": "Creek OBH-22 Passive Preamplifier",
 					"price": 399.99,
 					"discount_price": 349.99,
@@ -1226,7 +1226,7 @@
 			"name": "outlet",
 			"products": [
 				{
-					"id": 1,
+					"id": 34,
 					"name": "Jolida JD102B Tube Amplifier (Open Box)",
 					"price": 549.99,
 					"discount_price": 399.99,
@@ -1260,7 +1260,7 @@
 					}
 				},
 				{
-					"id": 2,
+					"id": 35,
 					"name": "Pro-Ject Debut III Turntable (B-Stock)",
 					"price": 449.99,
 					"discount_price": 299.99,
@@ -1295,7 +1295,7 @@
 					}
 				},
 				{
-					"id": 3,
+					"id": 36,
 					"name": "Creek Classic CD Player (Demo Unit)",
 					"price": 849.99,
 					"discount_price": 599.99,
@@ -1330,7 +1330,7 @@
 					}
 				},
 				{
-					"id": 4,
+					"id": 37,
 					"name": "Epos M5 Speakers (Refurbished)",
 					"price": 599.99,
 					"discount_price": 399.99,
@@ -1365,7 +1365,7 @@
 					}
 				},
 				{
-					"id": 5,
+					"id": 38,
 					"name": "Manley Mahi Monoblocks (Demo Pair)",
 					"price": 2950.00,
 					"discount_price": 2499.99,
