@@ -57,7 +57,7 @@ export default function ShopFilterItem({
           />
         </summary>
         <div className="filter-item__sliders">
-          <div className="price-inputs">
+          <div className="filter-item__price-inputs">
             <input
               type="number"
               value={minPrice}

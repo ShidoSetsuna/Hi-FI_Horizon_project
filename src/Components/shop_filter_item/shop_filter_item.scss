@@ -46,6 +46,31 @@
     }
   }
 
+  &__price-inputs {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+      border: none;
+      outline: none;
+      background: transparent;
+      border: 1px solid vars.$black;
+      width: 4rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+
+      // Remove spinner arrows
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
   &__checkbox {
     position: relative;
     width: 1em; // or whatever size your icons are
