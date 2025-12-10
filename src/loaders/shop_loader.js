@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../config/api";
 
 export const loadShop = async () => {
-  // First, fetch all categories
+  // fetch all categories
   const categoriesResponse = await fetch(`${API_BASE_URL}/categories`);
   if (!categoriesResponse.ok) {
     throw new Error("Failed to load categories");
@@ -20,23 +20,22 @@ export const loadShop = async () => {
   const colors = [
     ...new Set(
       allProducts.flatMap(
-        (product) => product.variants?.flatMap((variant) => variant.color) || []
+        (product) => product.variants?.map((variant) => variant.color) || []
       )
     ),
   ].sort();
 
-  // Get price range
-  const prices = allProducts.map((product) => product.price);
+  // Get price range (use discount_price if available)
+  const prices = allProducts.map(
+    (product) => product.discount_price ?? product.price
+  );
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
 
-  const filters = {
+  return {
     brands,
     colors,
     priceRange: { min: minPrice, max: maxPrice },
-    categories: categories.map((cat) => ({ id: cat.id, name: cat.name })),
+    categories,
   };
-
-  console.log("Filter data loaded:", filters, brands);
-  return filters;
 };

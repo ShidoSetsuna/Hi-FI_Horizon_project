@@ -47,7 +47,7 @@ export default function Shop() {
       <div className="products-grid">
         {filteredProducts.map((item) => (
           <ProductCard
-            key={item.id}
+            key={`${item.id}-${item.name}`}
             itemId={item.id}
             name={item.name}
             image={item.image}

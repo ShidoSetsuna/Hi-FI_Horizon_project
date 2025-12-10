@@ -8,6 +8,7 @@ import Contact from "../Contact";
 
 //Loaders
 import { loadShop } from "../../loaders/shop_loader";
+//FAQ Page
 import FAQ from "../faq";
 
 export const router = createBrowserRouter([
