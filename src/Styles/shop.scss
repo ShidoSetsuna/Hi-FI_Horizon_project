@@ -1,0 +1,22 @@
+@use "./variables" as vars;
+
+.shop-page {
+  display: flex;
+  padding: vars.$default-padding-top-bottom vars.$default-padding-sides;
+  gap: 2rem;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__shop-filters {
+    width: 250px;
+  }
+
+  &__products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
