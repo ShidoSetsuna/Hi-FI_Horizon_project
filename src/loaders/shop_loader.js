@@ -36,6 +36,7 @@ export const loadShop = async () => {
     brands,
     colors,
     priceRange: { min: minPrice, max: maxPrice },
-    categories,
+    categories: categories.map((cat) => cat.name),
+    AllCategories: categories,
   };
 };

@@ -9,6 +9,13 @@ export default function ShopFilter({ filters, onFilterChange }) {
     [onFilterChange]
   );
 
+  const handleCategoryChange = useCallback(
+    (checkedCategories) => {
+      onFilterChange((prev) => ({ ...prev, categories: checkedCategories }));
+    },
+    [onFilterChange]
+  );
+
   const handleColorChange = useCallback(
     (checkedColors) => {
       onFilterChange((prev) => ({ ...prev, colors: checkedColors }));
@@ -30,6 +37,11 @@ export default function ShopFilter({ filters, onFilterChange }) {
         name="Brand"
         options={filters.brands}
         onChange={handleBrandChange}
+      />
+      <ShopFilterItem
+        name="Category"
+        options={filters.categories}
+        onChange={handleCategoryChange}
       />
       <ShopFilterItem
         name="Color"

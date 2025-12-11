@@ -114,12 +114,12 @@ export default function ShopFilterItem({
                     (priceRange.max - priceRange.min)) *
                   100
                 }%, 
-                #22c55e ${
+                #ff6600 ${
                   ((minPrice - priceRange.min) /
                     (priceRange.max - priceRange.min)) *
                   100
                 }%, 
-                #22c55e ${
+                #ff6600 ${
                   ((maxPrice - priceRange.min) /
                     (priceRange.max - priceRange.min)) *
                   100
@@ -146,12 +146,12 @@ export default function ShopFilterItem({
                     height: "32px",
                     width: "32px",
                     borderRadius: "50%",
-                    backgroundColor: "#22c55e",
+                    backgroundColor: "#ff6600",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     boxShadow: isDragged
-                      ? "0 0 0 4px rgba(34, 197, 94, 0.3)"
+                      ? "0 0 0 4px rgba(255, 102, 0, 0.3)"
                       : "0 2px 4px rgba(0,0,0,0.2)",
                     outline: "none",
                   }}>

@@ -9,19 +9,30 @@ export default function Shop() {
   const [filters, setFilters] = useState({
     brands: new Set(),
     colors: new Set(),
+    categories: new Set(),
     minPrice: data.priceRange?.min || 0,
     maxPrice: data.priceRange?.max || Infinity,
   });
 
   // Get all products from all categories
   const allProducts =
-    data.categories?.flatMap((cat) => cat.products || []) || [];
+    data.AllCategories?.flatMap((cat) => cat.products || []) || [];
 
   // Filter products based on active filters
   const filteredProducts = allProducts.filter((product) => {
     // Filter by brand
     if (filters.brands.size > 0 && !filters.brands.has(product.brand)) {
       return false;
+    }
+
+    // Filter by category
+    if (filters.categories.size > 0) {
+      const productCategory = data.AllCategories?.find((cat) =>
+        cat.products?.some((p) => p.id === product.id)
+      );
+      if (!productCategory || !filters.categories.has(productCategory.name)) {
+        return false;
+      }
     }
 
     // Filter by color (check if product has any variant with selected color)
