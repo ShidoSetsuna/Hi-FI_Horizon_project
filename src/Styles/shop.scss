@@ -1,5 +1,9 @@
+@use "./variables" as vars;
+
 .shop-page {
   display: flex;
+  padding: vars.$default-padding-top-bottom vars.$default-padding-sides;
+  gap: 2rem;
 
   &__shop-filters {
     width: 250px;

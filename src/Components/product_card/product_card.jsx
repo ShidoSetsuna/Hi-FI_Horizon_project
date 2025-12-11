@@ -1,5 +1,6 @@
 import { GiSettingsKnobs } from "react-icons/gi";
 import { API_BASE_URL } from "../../config/api";
+import { Link } from "react-router";
 import "./product_card.scss";
 
 export default function ProductCard({
@@ -25,13 +26,15 @@ export default function ProductCard({
         alt={name}
       />
       <h3 className="product-card__name">{name}</h3>
-      <p className="product-card__price">{price}</p>
-      <button className="product-card__add-to-cart">Add to Cart</button>
-      {stockEnabled && (
-        <p className="product-card__stock">
-          {stock ? `In stock: ${stock}` : "Out of stock"}
-        </p>
-      )}
+      <p className="product-card__price">$ {price}</p>
+      <section className="product-card__cart-stock">
+        <button className="product-card__add-to-cart">Add to Cart</button>
+        {stockEnabled && (
+          <p className="product-card__stock">
+            {stock ? `In stock: ${stock}` : "Out of stock"}
+          </p>
+        )}
+      </section>
     </article>
   );
 }

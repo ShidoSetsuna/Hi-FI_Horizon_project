@@ -65,6 +65,8 @@ export default function Shop() {
             image={item.image}
             price={item.discount_price ?? item.price}
             stock={getStock(item)}
+            compareEnabled={true}
+            stockEnabled={true}
           />
         ))}
       </div>
