@@ -44,8 +44,11 @@ export default function ProductCard({
           </Link>
         )}
         {stockEnabled && (
-          <p className="product-card__stock">
-            {stock ? `In stock: ${stock}` : "Out of stock"}
+          <p
+            className={`product-card__stock ${
+              stock <= 0 ? "product-card__stock--out-of-stock" : ""
+            }`}>
+            {stock > 0 ? `In stock: ${stock}` : <>Out of stock: 0</>}
           </p>
         )}
       </section>
