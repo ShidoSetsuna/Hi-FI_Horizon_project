@@ -23,14 +23,14 @@ export default function Contact() {
   };
 
   return (
-    <div>
-      <h1>GET IN TOUCH WITH US</h1>
+    <div className="contact-page">
+      <h1 className="contact-page__title">GET IN TOUCH WITH US</h1>
 
       <article className="contact-form">
         <form onSubmit={handleSubmit} className="contact-form__form">
-          <div className="contact-form__form-group">
-            <label htmlFor="name" className="contact-form__label">
-              Full Name
+          <div className="contact-form__group">
+            <label htmlFor="name">
+              Full name <span className="required">*</span>
             </label>
             <input
               type="text"
@@ -42,8 +42,10 @@ export default function Contact() {
             />
           </div>
 
-          <div>
-            <label htmlFor="email">Email</label>
+          <div className="contact-form__group">
+            <label htmlFor="email">
+              Email <span className="required">*</span>
+            </label>
             <input
               type="email"
               id="email"
@@ -54,8 +56,10 @@ export default function Contact() {
             />
           </div>
 
-          <div>
-            <label htmlFor="subject">Subject</label>
+          <div className="contact-form__group">
+            <label htmlFor="subject">
+              Subject <span className="required">*</span>
+            </label>
             <input
               type="text"
               id="subject"
@@ -66,24 +70,28 @@ export default function Contact() {
             />
           </div>
 
-          <div>
-            <label htmlFor="message">Message</label>
+          <div className="contact-form__group">
+            <label htmlFor="message">
+              Message <span className="required">*</span>
+            </label>
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              rows="5"
+              rows="6"
               required
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className="contact-form__submit">
+            Submit
+          </button>
         </form>
       </article>
-      <p>
-        Visit our sister companies Home Sound and The Movie Rooms part of the
-        HiFi Horizon Group.{" "}
+      <p className="contact-page__footer">
+        Visit our sister companies <a href="#">Home Sound</a> and{" "}
+        <a href="#">The Movie Rooms</a> part of the HiFi Horizon Group.
       </p>
     </div>
   );
