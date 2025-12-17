@@ -3,11 +3,14 @@ import Layout from "../../Components/Layout/Layout";
 //Pages
 import Signup from "../Signup";
 import Login from "../Login";
+import Profile from "../Profile";
 import ErrorPage from "../ErrorPage";
 import Home from "../Home";
 import Shop from "../Shop";
 import AboutUs from "../About";
 import Contact from "../Contact";
+import Cart from "../Cart";
+import Payment from "../Payment";
 
 //Loaders
 import { loadShop } from "../../loaders/shop_loader";
@@ -57,6 +60,18 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },

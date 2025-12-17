@@ -56,6 +56,23 @@ export const useAuthStore = create(
       isAuthenticated: () => {
         return get().currentUser !== null;
       },
+
+      updateUser: (updatedData) => {
+        const { accounts, currentUser } = get();
+        if (!currentUser)
+          return { success: false, message: "No user logged in" };
+
+        // Update in accounts array
+        const updatedAccounts = accounts.map((acc) =>
+          acc.id === currentUser.id ? { ...acc, ...updatedData } : acc
+        );
+
+        // Update current user
+        const updatedUser = { ...currentUser, ...updatedData };
+
+        set({ accounts: updatedAccounts, currentUser: updatedUser });
+        return { success: true, message: "Profile updated successfully" };
+      },
     }),
     {
       name: "auth-storage", // localStorage key
