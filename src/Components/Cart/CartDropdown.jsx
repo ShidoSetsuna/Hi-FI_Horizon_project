@@ -13,7 +13,7 @@ export default function CartDropdown() {
     return (
         <div className="cart-dropdown">
             {items.map(item => (
-                <div key={item.product.id} className="cart-dropdown__item">
+                <div key={item.id} className="cart-dropdown__item">
                     <img src={item.image} alt={item.name} />
 
                     <div className="cart-dropdown__item-details">

@@ -19,6 +19,7 @@ export default function ProductDetails() {
     const [quantity, setQuantity] = useState(1);
 
     const maxStock = selectedVariant?.stock ?? 0;
+    const variantKey = selectedVariant.color
 
     const increaseQuantity = () => {
         setQuantity(q => Math.min(q + 1, maxStock));
@@ -28,14 +29,17 @@ export default function ProductDetails() {
         setQuantity(q => Math.max(q - 1, 1));
     }
 
+
+
     const handleAddToCart = () => {
         if (maxStock === 0) return
+        if (!selectedVariant) return
 
         addItem(
             {
-                id: `${product.id}-${selectedVariant.id}`,
+                id: `${product.id}-${variantKey}`,
                 productId: product.id,
-                variantId: selectedVariant.id,
+                variantKey,
                 name: `${product.name} (${selectedVariant.color})`,
                 price: product.price,
                 image: `${API_BASE_URL}/${selectedVariant.image}`,

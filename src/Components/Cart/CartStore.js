@@ -1,74 +1,74 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 export const useCartStore = create(
-    persist(
-        (set, get) => ({
-            items: [],
+  persist(
+    (set, get) => ({
+      items: [],
 
-            addItem: (product, quantity = 1) => {
-                const items = get().items
-                const existing = items.find(item => item.product.id === product.id)
+      addItem: (item, quantity = 1) => {
+        if (!item || !item.id) return
 
-                if (existing) {
-                    const newQuantity = Math.min(
-                        existing.quantity + quantity,
-                        product.stock
-                    )
+        const items = get().items
+        const existing = items.find(i => i.id === item.id)
 
-                    set({
-                        items: items.map(item =>
-                            item.product.id === product.id
-                                ? { ...item, quantity: newQuantity }
-                                : item
-                        )
-                    })
-                } else {
-                    set({
-                        items: [
-                            ...items,
-                            {
-                                ...product,
-                                quantity: Math.min(quantity, product.stock),
-                            }
-                        ]
-                    })
-                }
-            },
+        if (existing) {
+          const newQuantity = Math.min(
+            existing.quantity + quantity,
+            item.stock
+          )
 
-            updateQuantity: (productId, quantity) => {
-                const item = get().items.find(item => item.product.id === productId)
-                if (!item) return
-
-                if (quantity < 1) {
-                    set({ items: get().items.filter(item => item.product.id !== productId) })
-                    return
-                }
-
-                if (quantity > item.product.stock) return
-
-                set({
-                    items: get().items.map(item =>
-                        item.product.id === productId
-                            ? { ...item, quantity }
-                            : item
-                    )
-                })
-            },
-
-            clearCart: () => set({ items: []}),
-
-            totalItems: () => 
-                get().items.reduce((sum, item) => sum + item.quantity, 0),
-
-            totalPrice: () =>
-                get().items.reduce(
-                    (sum, item) => sum + item.product.price * item.quantity,
-                    0
-                )
-        }),
-        {
-            name: "cart-storage", // name of the item in the storage
+          set({
+            items: items.map(i =>
+              i.id === item.id
+                ? { ...i, quantity: newQuantity }
+                : i
+            ),
+          })
+        } else {
+          set({
+            items: [
+              ...items,
+              {
+                ...item,
+                quantity: Math.min(quantity, item.stock),
+              },
+            ],
+          })
         }
-    )
+      },
+
+      updateQuantity: (id, quantity) => {
+        const item = get().items.find(i => i.id === id)
+        if (!item) return
+
+        if (quantity < 1) {
+          set({ items: get().items.filter(i => i.id !== id) })
+          return
+        }
+
+        if (quantity > item.stock) return
+
+        set({
+          items: get().items.map(i =>
+            i.id === id ? { ...i, quantity } : i
+          ),
+        })
+      },
+
+      clearCart: () => set({ items: [] }),
+
+      totalItems: () =>
+        get().items.reduce((sum, i) => sum + i.quantity, 0),
+
+      totalPrice: () =>
+        get().items.reduce(
+          (sum, i) => sum + i.price * i.quantity,
+          0
+        ),
+    }),
+    {
+      name: "cart-storage",
+    }
+  )
 )

@@ -12,15 +12,19 @@ import { useNavigate } from "react-router";
 import { FaBars, FaSearch, FaTimes } from "react-icons/fa";
 import { MobileSearch, Search } from "../Search/Search";
 
-import CartDropdown from "../Cart/CartDropdown"
+import { useCartStore } from "../Cart/CartStore";
+import CartDropdown from "../Cart/CartDropdown";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [active, setActive] = useState("home");
 
   const currentUser = useAuthStore((state) => state.currentUser);
   const navigate = useNavigate();
+
+  const totalItems = useCartStore(state => state.totalItems);
 
   // Get first name from full name
   const getFirstName = () => {
@@ -28,15 +32,23 @@ export default function NavBar() {
     return currentUser.fullName.split(" ")[0];
   };
 
-  const handleNavigate = (path, id) => {
-    setActive(id);
-    navigate(path);
-    setMenuOpen(false);
-    setSearchOpen(false);
-  };
+    const handleNavigate = (path, id) => {
+        setActive(id);
+        navigate(path);
+        setMenuOpen(false);
+        setSearchOpen(false);
+        setCartOpen(false);
+    };
+
+    const toggleCart = () => {
+        setCartOpen((prev) => !prev);
+        setSearchOpen(false);
+        setMenuOpen(false);
+    }
 
   const toggleSearch = () => {
     setSearchOpen((prev) => !prev);
+    setCartOpen(false);
   };
 
   const links = [
@@ -109,33 +121,38 @@ export default function NavBar() {
 
         {/* Actions (Search, Profile, Cart) */}
         <div className="navbar__actions">
-          <Search searchOpen={searchOpen} toggleSearch={toggleSearch} />
+            <Search searchOpen={searchOpen} toggleSearch={toggleSearch} />
 
-                    <div className="navbar__cart-container">
-                        <AiOutlineShoppingCart size={24} className="navbar__cart" />
-                    </div>
-                    
-                    {dropdownOpen && <CartDropdown />}
-          <div className="navbar__profile-container">
-            <AiOutlineUser size={24} className="navbar__profile" />
-            {getFirstName() ? (
-              <p className="navbar__welcome-message">
-                Welcome {getFirstName()}!
-              </p>
-            ) : (
-              <span></span>
-            )}
-          </div>
+            <div className="navbar__cart-container" onClick={toggleCart}>
+                <AiOutlineShoppingCart size={24} className="navbar__cart" />
 
-          <div className="navbar__cart-container">
-            <AiOutlineShoppingCart size={24} className="navbar__cart" />
-          </div>
+                {totalItems > 0 && (
+                    <span className="navbar__cart-badge">{totalItems()}</span>
+                )}
+            </div>
 
-          <button
-            className="navbar__menu-toggle"
-            onClick={() => setMenuOpen(true)}>
-            <FaBars size={24} />
-          </button>
+            {cartOpen && <CartDropdown />}
+
+            <div className="navbar__profile-container">
+                <AiOutlineUser size={24} className="navbar__profile" />
+                {getFirstName() ? (
+                <p className="navbar__welcome-message">
+                    Welcome {getFirstName()}!
+                </p>
+                ) : (
+                <span></span>
+                )}
+            </div>
+
+            <div className="navbar__cart-container">
+                <AiOutlineShoppingCart size={24} className="navbar__cart" />
+            </div>
+
+            <button
+                className="navbar__menu-toggle"
+                onClick={() => setMenuOpen(true)}>
+                <FaBars size={24} />
+            </button>
         </div>
       </div>
 
