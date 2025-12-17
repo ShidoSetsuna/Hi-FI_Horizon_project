@@ -14,7 +14,7 @@ import { loadShop } from "../../loaders/shop_loader";
 import { loadAboutUs } from "../../loaders/about_loader";
 //FAQ Page
 import FAQ from "../faq";
-import ProductDetails from "../../Components/ProductDetails/ProductDetails";
+import ProductDetails from "../../Components/productDetails/ProductDetails";
 import { loadProductDetails } from "../../loaders/product_details_loader";
 
 export const router = createBrowserRouter([
