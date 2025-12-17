@@ -1,4 +1,5 @@
 @use "./variables" as vars;
+@use "sass:color";
 
 .profile-page {
   padding: 2rem vars.$default-padding-sides;
@@ -59,6 +60,25 @@
     padding: 3rem;
     font-size: 0.95rem;
   }
+
+  &__logout {
+    margin-top: 2rem;
+    background-color: vars.$button;
+    color: vars.$white;
+    border: none;
+    padding: 0.75rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 2px;
+    box-shadow: 0px 2px 4px rgb(45, 45, 45, 0.4);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background-color: color.adjust(vars.$button, $lightness: -8%);
+    }
+  }
 }
 
 .profile-fields {
@@ -73,6 +93,12 @@
   padding: 1.25rem 0;
   border-bottom: 1px solid #e0e0e0;
   gap: 1rem;
+  @media (max-width: 600px) {
+    &--editing {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
 
   &:last-child {
     border-bottom: none;
@@ -123,28 +149,25 @@
   &__cancel {
     padding: 0.25rem 0.75rem;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 0.85rem;
     transition: background-color 0.2s ease;
   }
 
   &__save {
-    background-color: vars.$gray;
-    color: vars.$black;
+    background-color: vars.$button;
+    color: vars.$white;
 
     &:hover {
-      background-color: vars.$black;
-      color: vars.$white;
+      background-color: color.adjust(vars.$button, $lightness: -8%);
     }
+  }
 
-    &__cancel {
-      background-color: vars.$gray;
-      color: vars.$black;
-      &:hover {
-        background-color: vars.$black;
-        color: vars.$white;
-      }
+  &__cancel {
+    background-color: vars.$button;
+    color: vars.$white;
+    &:hover {
+      background-color: color.adjust(vars.$button, $lightness: -8%);
     }
   }
 

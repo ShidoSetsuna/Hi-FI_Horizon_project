@@ -60,7 +60,15 @@ export default function Profile() {
 
   const handleEdit = (field) => {
     setEditingField(field.label);
-    setEditValue(field.value === "Not set" ? "" : field.value);
+
+    if (field.label === "Password") {
+      // Get password from accounts array
+      const accounts = useAuthStore.getState().accounts;
+      const account = accounts.find((acc) => acc.id === currentUser.id);
+      setEditValue(account?.password || "");
+    } else {
+      setEditValue(field.value === "Not set" ? "" : field.value);
+    }
   };
 
   const handleSave = () => {
@@ -94,6 +102,12 @@ export default function Profile() {
     setEditingField(null);
     setEditValue("");
   };
+
+  const handleLogout = () => {
+    const logout = useAuthStore.getState().logout;
+    logout();
+    navigate("/");
+  };
   return (
     <div className="profile-page">
       <div className="profile-page__container">
@@ -122,7 +136,11 @@ export default function Profile() {
 
             <div className="profile-fields">
               {profileFields.map((field, index) => (
-                <div key={index} className="profile-field">
+                <div
+                  key={index}
+                  className={`profile-field ${
+                    editingField === field.label ? "profile-field--editing" : ""
+                  }`}>
                   <div className="profile-field__icon">{field.icon}</div>
                   <div className="profile-field__content">
                     <span className="profile-field__label">{field.label}</span>
@@ -168,6 +186,9 @@ export default function Profile() {
                 </div>
               ))}
             </div>
+            <button className="profile-content__logout" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         )}
 
