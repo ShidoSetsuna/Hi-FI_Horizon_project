@@ -7,6 +7,9 @@
   left: anchor(left);
   border: none;
   padding: 1rem;
+  @media (max-width: 600px) {
+    display: none;
+  }
 
   &__title {
     font-size: 1.1rem;

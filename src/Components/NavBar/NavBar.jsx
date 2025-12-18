@@ -160,8 +160,14 @@ export default function NavBar() {
             id="shop-popover"
             categories={categories}
             onSelectCategory={(category) => {
-              navigate(`/shop?category=${category}`);
-              document.getElementById("shop-popover")?.hidePopover();
+              if (category === null) {
+                handleNavigate("/shop", "shop");
+                document.getElementById("shop-popover")?.hidePopover();
+                return;
+              } else {
+                handleNavigate(`/shop?category=${category}`, "shop");
+                document.getElementById("shop-popover")?.hidePopover();
+              }
             }}
           />
         </div>

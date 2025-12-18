@@ -13,6 +13,11 @@ export default function ShopDropdown({ id, categories, onSelectCategory }) {
     <div id={id} popover="auto" className="shop-dropdown">
       <p className="shop-dropdown__title">Browse Categories</p>
       <ul className="shop-dropdown__categories">
+        <li
+          className="shop-dropdown__category-item"
+          onClick={() => onSelectCategory(null)}>
+          All Categories
+        </li>
         {categories.map((category) => (
           <li
             key={category}
