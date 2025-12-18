@@ -1,6 +1,7 @@
 import { GiSettingsKnobs } from "react-icons/gi";
 import { API_BASE_URL } from "../../config/api";
 import { Link } from "react-router";
+import { useCartStore } from "../Cart/CartStore";
 import "./product_card.scss";
 
 export default function ProductCard({
@@ -13,6 +14,23 @@ export default function ProductCard({
   stockEnabled,
   cartEnabled,
 }) {
+
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault()
+    if (stock <= 0) return;
+
+    addItem({
+      id: itemId,
+      productId: itemId,
+      name: name,
+      price: price,
+      image: `${API_BASE_URL}/${image}`,
+      stock: stock,
+    }, 1)
+  }
+
   return (
     <article className="product-card">
       {compareEnabled && (
@@ -35,7 +53,7 @@ export default function ProductCard({
         className="product-card__cart-stock"
         {...(cartEnabled ? {} : { style: { justifyContent: "center" } })}>
         {cartEnabled ? (
-          <button className="product-card__add-to-cart">Add to Cart</button>
+          <button className="product-card__add-to-cart" onClick={handleAddToCart}>Add to Cart</button>
         ) : (
           <Link
             to={`/productdetails/${itemId}`}
