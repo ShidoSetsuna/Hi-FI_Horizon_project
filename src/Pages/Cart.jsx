@@ -6,7 +6,6 @@ import "../Styles/cart.sass"
 import CheckoutStepper from "../Components/CheckoutStepper/CheckoutStepper";
 
 export default function Cart() {
-  // 1. Pull the data from the global store
   const items = useCartStore((state) => state.items);
   const totalPrice = useCartStore((state) => state.totalPrice());
   const updateQuantity = useCartStore((state) => state.updateQuantity);

@@ -26,7 +26,7 @@ export default function CartDropdown({ id }) {
     }
 
     return (
-        <div id={id} popover="auto" className="cart-dropdown">
+        <div id={id} popover="auto" className="cart-dropdown" ref={popoverRef}>
             <div className="cart-dropdown__header">
                 <h2 className="cart-dropdown__title">Cart <span>({totalItemsCount} Items)</span></h2>
                 <button onClick={clearCart}>Remove all</button>
