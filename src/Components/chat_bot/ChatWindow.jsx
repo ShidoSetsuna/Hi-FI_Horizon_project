@@ -135,6 +135,12 @@ export default function ChatWindow({ onClose }) {
             <span className="chat-window__bot-status">Probably online</span>
           </div>
         </div>
+        <button
+          className="chat-window__close-button"
+          onClick={onClose}
+          type="button">
+          ×
+        </button>
       </div>
 
       <div className="chat-window__messages">
