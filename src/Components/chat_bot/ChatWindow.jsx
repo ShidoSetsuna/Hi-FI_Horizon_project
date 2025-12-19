@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { RiAttachment2 } from "react-icons/ri";
 import { BsEmojiSmileUpsideDownFill } from "react-icons/bs";
-import ai_assistant_img from "../../Assets/ai_assistant.avif";
+import ai_assistant_img from "../../assets/ai_assistant.avif";
 import "./chat_bot.scss";
 
 // Silly AI responses for fun! :3
